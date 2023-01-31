@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins' sans-serif;
+}
+
+:root {
+    --clr: #222327
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--clr);
+    height: 150px;
+    transition: 0.6s;
+}
+
+header.sticky .navigation {
+    display: flex;
+    width: 406px;
+    height: 76px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;   
+    border: 6px solid var(--clr);
+    transition: .5s;
+}
+
+header.sticky .indicator::after{
+    box-shadow: none
+}
+
+header.sticky .indicator::before{
+    box-shadow: none
+}
+
+.navigation {
+    position: fixed;
+    width: 400px;
+    height: 70px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;   
+}
+
+.navigation ul {
+    display: flex;
+    width: 350px;
+}
+
+.navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+
+.navigation ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    line-height: 80px;
+    font-size: 1.5em;
+    text-align: center;
+    transition:  0.5s;
+    color: var(--clr);
+}
+.navigation ul li.active a .icon {
+    transform: translatey(-32px);
+}
+
+.navigation ul li a .text {
+    position: absolute;
+    color: var(--clr);
+    font-weight: bold;
+    font-size: .8em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.navigation ul li.active a .text {
+    opacity: 1;
+    transform: translateY(10px);
+}
+
+.indicator{
+    position: absolute;
+    top: -50%;
+    width: 70px;
+    height: 70px;
+    background: #29fd53;
+    border-radius: 50%;
+    border: 6px solid var(--clr);
+    transition: 0.5s;
+}
+
+.indicator::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 1px -10px 0 0 var(--clr);
+}
+
+.indicator::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: -1px -10px 0 0 var(--clr);
+}
+
+.navigation ul li:nth-child(1).active ~ .indicator{
+    transform: translateX(calc(70px * 0));
+}
+
+.navigation ul li:nth-child(2).active ~ .indicator{
+    transform: translateX(calc(70px * 1));
+}
+
+.navigation ul li:nth-child(3).active ~ .indicator{
+    transform: translateX(calc(70px * 2));
+}
+
+.navigation ul li:nth-child(4).active ~ .indicator{
+    transform: translateX(calc(70px * 3));
+}
+
+body {
+    height: 200vh;
+    transition: background 0.2s linear;
+}
+
+
+body.dark {
+    background-color: #292c35;
+}
+
+
+.darkTH{
+    position: fixed;
+    display:flex ;
+    margin-left: 290px;
+    justify-content: end;
+    list-style: none;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox:checked +.label .ball {
+    transform: translatex(22px);
+}
+
+.label  {
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 5px;
+    height: 26px;
+    width: 50px;
+    border-radius: 50px;
+}
+
+.ball  {
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    height: 21px;
+    width: 21px;
+    transition: transform 0.2s linear;
+    
+}
+
+.fa-moon { 
+    color: #f1c40f;
+}
+
+.fa-sun {
+    color: #f39c12;
+}
